@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.erdem.tutorial.randomizer.RandomInt;
 import com.erdem.tutorial.randomizer.RandomString;
@@ -19,21 +20,46 @@ public class MainActivity extends BaseActivity {
     @RandomInt
     int test3;
 
+    @RandomString
+    String test4;
+
+    @RandomInt(maxValue = 10)
+    int test5;
+
+    @RandomInt(minValue = 100, maxValue = 105)
+    int test6;
+
+    @RandomInt(minValue = 500, maxValue = 1000)
+    int test7;
+
+    @RandomInt(minValue = 100, maxValue = 101)
+    int test8;
+
+    @RandomInt
+    int test9;
+
+    @RandomString
+    String test10;
+
+    @RandomString( regex = "[a-zA-Z0-9]{6}")
+    String test11;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Log.d("#MainActivity#", "test2 = " + test1);
-        Log.d("#MainActivity#", "test3 = " + test2);
-        Log.d("#MainActivity#", "test4 = " + test3);
-
-        Button button = ((Button) findViewById(R.id.second_activity_button));
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(SecondActivity.newIntent(MainActivity.this));
-            }
-        });
+        ((TextView) findViewById(R.id.tvtext)).setText(
+                "test1 = " + test1 +"\n"+
+                "test2 = " + test2+"\n"+
+                "test3 = " + test3+"\n"+
+                "test4 = " + test4+"\n"+
+                "test5 = " + test5+"\n"+
+                "test5 = " + test6+"\n"+
+                "test7 = " + test7+"\n"+
+                "test8 = " + test8+"\n"+
+                "test9 = " + test9+"\n"+
+                "test10 = " + test10+"\n"+
+                "test11 = " + test11);
     }
 }

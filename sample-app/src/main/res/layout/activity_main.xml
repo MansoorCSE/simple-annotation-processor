@@ -9,11 +9,10 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin">
 
-    <Button
-        android:id="@+id/second_activity_button"
+    <TextView
+        android:id="@+id/tvtext"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Second Activity"/>
+        android:layout_alignParentTop="true"
+        android:layout_height="wrap_content"/>
 
 </RelativeLayout>

@@ -1,5 +1,7 @@
 package com.erdem.tutorial.randomizer;
 
+import com.mifmif.common.regex.Generex;
+
 import java.util.Random;
 
 import javax.lang.model.element.Element;
@@ -11,9 +13,11 @@ class AnnotatedRandomString extends AnnotatedRandomElement {
 
     private static final String QUALIFIER_STRING = "java.lang.String";
     private static final String SEED = "ABCDEFGHJKLMNOPRSTUVYZabcdefghjklmnoprstuvyz";
+    private String regex;
 
     AnnotatedRandomString(Element element) {
         super(element);
+        regex = element.getAnnotation(RandomString.class).regex();
     }
 
     @Override
@@ -27,9 +31,14 @@ class AnnotatedRandomString extends AnnotatedRandomElement {
     public String getRandomValue() {
         StringBuilder builder = new StringBuilder();
         Random random = new Random();
-        for (int i = 0; i < 10; i++) {
-            int randIndex = random.nextInt(SEED.length());
-            builder.append(SEED.charAt(randIndex));
+        if (regex.length() > 0) {
+            Generex generex = new Generex(regex);
+            builder.append(generex.random());
+        } else {
+            for (int i = 0; i < 10; i++) {
+                int randIndex = random.nextInt(SEED.length());
+                builder.append(SEED.charAt(randIndex));
+            }
         }
         return "\"" + builder.toString() + "\"";
     }
