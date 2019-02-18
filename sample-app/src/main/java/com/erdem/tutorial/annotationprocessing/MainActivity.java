@@ -41,7 +41,7 @@ public class MainActivity extends BaseActivity {
     @RandomString
     String test10;
 
-    @RandomString( regex = "[a-zA-Z0-9]{6}")
+    @RandomString( regex = "[a-zA-Z0-9]{100}")
     String test11;
 
     @Override

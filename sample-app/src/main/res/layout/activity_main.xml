@@ -13,6 +13,9 @@
         android:id="@+id/tvtext"
         android:layout_width="match_parent"
         android:layout_alignParentTop="true"
+        android:fontFamily= "sans-serif-medium"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
         android:layout_height="wrap_content"/>
 
 </RelativeLayout>
