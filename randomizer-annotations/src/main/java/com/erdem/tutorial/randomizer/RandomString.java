@@ -9,4 +9,5 @@ import static java.lang.annotation.RetentionPolicy.CLASS;
 @Retention(CLASS)
 @Target(value = FIELD)
 public @interface RandomString {
+    String regex() default "";
 }
